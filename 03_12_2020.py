@@ -6,8 +6,14 @@ from ev3dev2.motor import MoveTank
 from ev3dev2.sensor.lego import ColorSensor
 
 btn = Button() # Botão para parar a programação
-m1 = OUTPUT_B
-m2 = OUTPUT_C
+m1 = OUTPUT_B #Motor 1
+m2 = OUTPUT_C #Motor 2
+cs = ColorSensor()
+mt = MoveTank(m1, m2) #Os dois motores juntos
+
+if (btn == 1):
+    break
 
 def frente():
-    MoveTank(m1, m2)
+    mt.on_for_seconds(speed = 50, seconds=3)
+    sleep(1)
